@@ -1,0 +1,12 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1c4fd4" />
+      <stop offset="100%" stop-color="#f6c646" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="144" height="144" rx="32" fill="url(#logoGradient)" />
+  <rect x="26" y="26" width="108" height="108" rx="24" fill="white" opacity="0.9" />
+  <text x="80" y="92" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="52" font-weight="800" fill="#14379a">LPU</text>
+  <text x="80" y="114" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="600" fill="#1c4fd4">Lovely Professional University</text>
+</svg>
