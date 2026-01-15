@@ -26,3 +26,33 @@ styles, and images load correctly.
 
 The LPU logo and campus visuals are bundled locally under `assets/` so that the
 site works offline without relying on external image hosts.
+
+## Resolving git merge conflicts
+
+If you see merge conflicts while pulling or merging, use this quick checklist:
+
+1. Check which files are conflicted:
+
+   ```bash
+   git status -sb
+   ```
+
+2. Open each conflicted file and resolve the `<<<<<<<`, `=======`, `>>>>>>>`
+   markers by choosing the correct content.
+3. Mark files as resolved:
+
+   ```bash
+   git add <file-path>
+   ```
+
+4. Finish the merge:
+
+   ```bash
+   git commit
+   ```
+
+If you want to abort the merge and return to the previous state, run:
+
+```bash
+git merge --abort
+```
