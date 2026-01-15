@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LPU TGPA & CGPA Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav">
+        <div class="brand">
+          <img
+            src="assets/lpu-logo.svg"
+            alt="Lovely Professional University logo"
+            class="brand-logo"
+          />
+          <div>
+            <p class="brand-title">LPU Academic Companion</p>
+            <p class="brand-subtitle">TGPA & CGPA Calculator</p>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a class="button button-secondary" href="#calculator">Start Calculating</a>
+          <a class="button button-ghost" href="#guide">Student Guide</a>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <div>
+          <p class="eyebrow">Built for LPU students</p>
+          <h1>
+            Calculate your TGPA and CGPA with confidence — powered by LPU grading
+            standards.
+          </h1>
+          <p class="hero-description">
+            Enter your subject credits, grade points, and semester SGPA values to
+            instantly estimate your TGPA and CGPA. The calculator follows LPU’s
+            credit-weighted formula and includes a step-by-step guide to collect
+            marks from official portals.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#calculator">Open Calculator</a>
+            <a class="button button-secondary" href="#instructions">How it works</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img
+            src="assets/lpu-campus.svg"
+            alt="LPU campus illustration"
+          />
+          <div class="hero-card-content">
+            <h3>Plan your semester like a pro</h3>
+            <p>
+              Track performance, set grade targets, and keep your LPU academic
+              profile on track.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="calculator" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Calculator Suite</p>
+          <h2>All-in-one TGPA & CGPA calculator</h2>
+          <p>
+            Add subject-wise credits and grade points for TGPA, then combine
+            semester SGPA values for CGPA. Use the instant insights panel to see
+            your totals, averages, and improvement targets.
+          </p>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>TGPA Calculator (Current Semester)</h3>
+              <p>
+                Add each subject with credit value and grade point (LPU grade
+                points are usually 10, 9, 8, etc.).
+              </p>
+            </div>
+            <div class="table">
+              <div class="table-header">
+                <span>Subject</span>
+                <span>Credits</span>
+                <span>Grade Point</span>
+                <span>Remove</span>
+              </div>
+              <div id="tgpa-rows" class="table-body"></div>
+            </div>
+            <div class="panel-actions">
+              <button class="button button-secondary" id="add-subject">
+                + Add Subject
+              </button>
+              <button class="button" id="calculate-tgpa">Calculate TGPA</button>
+            </div>
+            <div class="result" id="tgpa-result">
+              <h4>TGPA Result</h4>
+              <p class="result-value">—</p>
+              <p class="result-meta">
+                Weighted grade points will appear here after calculation.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>CGPA Calculator (Overall)</h3>
+              <p>
+                Add each semester with SGPA and total credits to compute your
+                cumulative CGPA.
+              </p>
+            </div>
+            <div class="table">
+              <div class="table-header">
+                <span>Semester</span>
+                <span>Credits</span>
+                <span>SGPA</span>
+                <span>Remove</span>
+              </div>
+              <div id="cgpa-rows" class="table-body"></div>
+            </div>
+            <div class="panel-actions">
+              <button class="button button-secondary" id="add-semester">
+                + Add Semester
+              </button>
+              <button class="button" id="calculate-cgpa">Calculate CGPA</button>
+            </div>
+            <div class="result" id="cgpa-result">
+              <h4>CGPA Result</h4>
+              <p class="result-value">—</p>
+              <p class="result-meta">Keep building your academic story.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="insights">
+          <div>
+            <h3>Instant Insights</h3>
+            <p>
+              Use this summary as a quick snapshot of your current standing. The
+              numbers update every time you calculate.
+            </p>
+          </div>
+          <div class="insight-cards">
+            <div class="insight-card">
+              <p class="label">Total Credits (TGPA)</p>
+              <p class="value" id="tgpa-credits">0</p>
+            </div>
+            <div class="insight-card">
+              <p class="label">Weighted Points</p>
+              <p class="value" id="tgpa-weighted">0</p>
+            </div>
+            <div class="insight-card">
+              <p class="label">Total Credits (CGPA)</p>
+              <p class="value" id="cgpa-credits">0</p>
+            </div>
+            <div class="insight-card">
+              <p class="label">Weighted SGPA</p>
+              <p class="value" id="cgpa-weighted">0</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="instructions" class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Instructions</p>
+          <h2>Follow the LPU-approved process to collect your data</h2>
+          <p>
+            We designed these steps based on LPU Touch and UMS so you can grab
+            marks, credits, and semester details without confusion.
+          </p>
+        </div>
+
+        <div class="instructions-grid">
+          <article class="instruction-card">
+            <div class="instruction-header">
+              <span class="badge">Step 1</span>
+              <h3>LPU Touch – View your marks</h3>
+            </div>
+            <ol>
+              <li>Open the LPU Touch app and sign in with your credentials.</li>
+              <li>Tap on <strong>"View Marks"</strong> from the main dashboard.</li>
+              <li>Select the semester you want to calculate TGPA for.</li>
+              <li>
+                Note down each subject’s credits, grade point, and total marks.
+              </li>
+            </ol>
+            <div class="instruction-highlight">
+              <h4>What you’ll see</h4>
+              <ul>
+                <li>Attendance marks</li>
+                <li>Continuous assessment</li>
+                <li>Mid-term score</li>
+                <li>End-term score</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="instruction-card">
+            <div class="instruction-header">
+              <span class="badge">Step 2</span>
+              <h3>UMS Portal – Subject credits</h3>
+            </div>
+            <ol>
+              <li>Visit <strong>ums.lpu.in</strong> and log in.</li>
+              <li>Find <strong>Important Links → LMS</strong>.</li>
+              <li>Navigate to <strong>Program Schedules</strong>.</li>
+              <li>Select your program & term to see subject credits.</li>
+            </ol>
+            <div class="instruction-highlight">
+              <h4>Use this data to</h4>
+              <ul>
+                <li>Verify course titles</li>
+                <li>Confirm credit count</li>
+                <li>Check L-T-P structure</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="instruction-card">
+            <div class="instruction-header">
+              <span class="badge">Step 3</span>
+              <h3>Calculate TGPA</h3>
+            </div>
+            <ol>
+              <li>Add each subject in the TGPA section.</li>
+              <li>Enter credits and grade points (e.g., O=10, A+=9).</li>
+              <li>Click <strong>Calculate TGPA</strong>.</li>
+            </ol>
+            <div class="instruction-highlight">
+              <h4>Formula</h4>
+              <p>(Σ Credits × Grade Point) ÷ Σ Credits</p>
+            </div>
+          </article>
+
+          <article class="instruction-card">
+            <div class="instruction-header">
+              <span class="badge">Step 4</span>
+              <h3>Calculate CGPA</h3>
+            </div>
+            <ol>
+              <li>Collect SGPA and credits for each semester.</li>
+              <li>Add them in the CGPA section.</li>
+              <li>Click <strong>Calculate CGPA</strong> for the final result.</li>
+            </ol>
+            <div class="instruction-highlight">
+              <h4>Formula</h4>
+              <p>(Σ Credits × SGPA) ÷ Σ Credits</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="guide" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Student Guide</p>
+          <h2>Advanced tips to boost your grades</h2>
+          <p>
+            Go beyond the calculator with targeted strategies. Use these to
+            plan assessments and communicate with your mentors.
+          </p>
+        </div>
+
+        <div class="guide-grid">
+          <div class="guide-card">
+            <h3>Set a Target TGPA</h3>
+            <p>
+              Before mid-terms, estimate your required grade points. Use the
+              TGPA calculator to test scenarios like 9.0 or 9.5 and set study
+              milestones.
+            </p>
+          </div>
+          <div class="guide-card">
+            <h3>Track Credits Carefully</h3>
+            <p>
+              LPU electives and labs carry different credits. Verify every
+              subject in UMS to avoid miscalculations.
+            </p>
+          </div>
+          <div class="guide-card">
+            <h3>Review Weightage</h3>
+            <p>
+              Continuous assessment can impact final grades heavily. Compare
+              your CA score with attendance to spot quick improvements.
+            </p>
+          </div>
+          <div class="guide-card">
+            <h3>Plan for Scholarships</h3>
+            <p>
+              Many LPU scholarships rely on maintaining a minimum CGPA. Use the
+              CGPA calculator to check future requirements.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="grade-points" class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Grade Points</p>
+          <h2>LPU grade point reference table</h2>
+          <p>
+            Use this quick lookup table while entering grade points in the TGPA
+            calculator. Always verify with your department’s latest grading
+            policy.
+          </p>
+        </div>
+
+        <div class="grade-table">
+          <div class="grade-table-header">
+            <span>Letter Grade</span>
+            <span>Grade Point</span>
+            <span>Performance Band</span>
+            <span>Notes</span>
+          </div>
+          <div class="grade-table-body">
+            <div class="grade-table-row">
+              <span>O</span>
+              <span>10</span>
+              <span>Outstanding</span>
+              <span>Top performance across assessments.</span>
+            </div>
+            <div class="grade-table-row">
+              <span>A+</span>
+              <span>9</span>
+              <span>Excellent</span>
+              <span>Strong conceptual clarity with high scores.</span>
+            </div>
+            <div class="grade-table-row">
+              <span>A</span>
+              <span>8</span>
+              <span>Very Good</span>
+              <span>Consistent performance with minor gaps.</span>
+            </div>
+            <div class="grade-table-row">
+              <span>B+</span>
+              <span>7</span>
+              <span>Good</span>
+              <span>Average-to-good performance.</span>
+            </div>
+            <div class="grade-table-row">
+              <span>B</span>
+              <span>6</span>
+              <span>Above Average</span>
+              <span>Needs improvement in key topics.</span>
+            </div>
+            <div class="grade-table-row">
+              <span>C</span>
+              <span>5</span>
+              <span>Average</span>
+              <span>Meets minimum course requirements.</span>
+            </div>
+            <div class="grade-table-row">
+              <span>P</span>
+              <span>4</span>
+              <span>Pass</span>
+              <span>Minimum passing grade.</span>
+            </div>
+            <div class="grade-table-row">
+              <span>F</span>
+              <span>0</span>
+              <span>Fail</span>
+              <span>Requires re-registration.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Designed for Lovely Professional University students.</p>
+      <p>
+        This calculator is an unofficial tool. Always verify grades with LPU
+        records.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
